@@ -1,4 +1,4 @@
-Facebook Prophet Forecasting Model
+<h2>Facebook Prophet Forecasting Model</h2>h2>
 Introduction
 This repository is dedicated to implementing and exploring the Facebook Prophet model, a powerful and flexible tool for time series forecasting. Prophet is designed for forecasting at scale, handling the kinds of data irregularities common in real-world business scenarios. More details about the model can be found at the official Prophet documentation.
 
