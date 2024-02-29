@@ -12,3 +12,14 @@ Prophet is an open-source forecasting tool created by Facebook. It's robust to m
 
 <h3>About LSTM</h3>
 LSTM is a powerful neural network architecture used for sequential data prediction. It excels in forecasting time series data due to its ability to remember past data for long periods, making it highly effective for predicting economic trends and patterns. This section of our repository showcases our approach and findings using <a href="https://github.com/veridelisi/Forecasting/tree/main/">LTSM</a> for economic forecasting.
+
+<h2>TimeGPT Forecasting</h2>
+<p>Nixtla’s TimeGPT is a generative pre-trained forecasting model for time series data. TimeGPT can produce accurate forecasts for new time series without training, using only historical values as inputs. TimeGPT can be used across a plethora of tasks including demand forecasting, anomaly detection, financial forecasting, and more. The TimeGPT model “reads” time series data much like the way humans read a sentence – from left to right. It looks at windows of past data, which we can think of as “tokens”, and predicts what comes next. This prediction is based on patterns the model identifies in past data and extrapolates into the future. The API provides an interface to TimeGPT, allowing users to leverage its forecasting capabilities to predict future events. TimeGPT can also be used for other time series-related tasks, such as what-if scenarios, anomaly detection, and more.</p>
+
+<h3>About TimeGPT</h3>
+<p>Unlock the power of accurate predictions and confidently navigate
+uncertainty. Reduce uncertainty and resource limitations. With
+TimeGPT, you can effortlessly access state-of-the-art models to make
+data-driven decisions. Whether you’re a bank forecasting market trends
+or a startup predicting product demand, TimeGPT democratizes access to
+cutting-edge predictive insights.</p>
