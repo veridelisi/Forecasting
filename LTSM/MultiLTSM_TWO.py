@@ -134,3 +134,14 @@ plt.show()
 # Display the forecast table
 forecast_table = combined_df[['CPI', 'Predicted CPI', 'Forecasted CPI']].tail(18)
 print(forecast_table)
+
+"""
+Original LSTM Model with Keras Tuner
+Hyperparameter Tuning: Utilizes Keras Tuner to optimize hyperparameters such as the number of LSTM units and learning rate.
+Architecture: Composed of two LSTM layers followed by a Dense layer.
+Features: Uses 'CPI' and 'GSCPI' as input features.
+Data Preparation: Normalizes the data and creates sequences with a time step window of 12.
+Training: Trains the model for 50 epochs with a validation split of 20%.
+Forecasting: Forecasts the next 6 months by iteratively predicting and updating the input sequence.
+This model is designed to predict CPI values by leveraging past values and optimizing the model's architecture and parameters.
+"""
