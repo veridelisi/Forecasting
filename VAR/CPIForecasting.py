@@ -161,3 +161,29 @@ print('Mean Absolute Percentage Error value of the VAR Model is:', (mape))
 
 mpe = np.mean(df_test['CPI']-df_results['CPI_forecast'].values)
 print('Mean percentage Error value of the VAR Model is:', (mpe))
+
+
+
+# Additional forecast for the next 6 months
+future_forecast_index = pd.date_range(start=df.index[-1] + pd.DateOffset(months=1), periods=6, freq='M')
+future_fc = model_fitted.forecast(y=forecast_input, steps=6)
+future_df_forecast = pd.DataFrame(future_fc, index=future_forecast_index, columns=df.columns + '_d')
+
+# Invert transformation for additional 6 months
+future_df_results = invert_transformation(df_train, future_df_forecast, second_diff=False)
+future_df_results = future_df_results.loc[:, ['CPI_forecast', 'GSCPI_forecast', 'UNRATE_forecast', 'OIL_forecast']]
+
+# Append the future forecast to the existing results
+combined_forecast = pd.concat([df_results, future_df_results])
+combined_forecast.loc[:, ['CPI_forecast']]
+
+# Plot the results including the additional 6 months forecast
+fig, ax = plt.subplots(figsize=(10, 6))
+combined_forecast['CPI_forecast'].plot(legend=True, ax=ax).autoscale(axis='x', tight=True)
+df_test['CPI'][-nobs:].plot(legend=True, ax=ax)
+ax.set_title("CPI Forecast vs Actuals including next 6 months")
+ax.xaxis.set_ticks_position('none')
+ax.yaxis.set_ticks_position('none')
+ax.spines["top"].set_alpha(0)
+ax.tick_params(labelsize=6)
+plt.show()
