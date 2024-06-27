@@ -74,6 +74,11 @@ for name, column in df_train.items():
 # 1st difference
 df_differenced = df_train.diff().dropna()
 
+''' Use only the first three variables for the VAR model
+     selected_variables = df_differenced.columns[:3]
+     df_differenced_selected = df_differenced[selected_variables]
+'''
+
 # ADF Test on each column of 1st Differences Dataframe
 for name, column in df_differenced.items():
     ADF_test(column, name=column.name)
