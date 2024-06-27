@@ -90,8 +90,13 @@ for i in [1,2,3,4,5,6,7,8,9,10]:
 x = model.select_order(maxlags=3)
 x.summary()
 
-model_fitted = model.fit(2)
-model_fitted.summary()
+# Identify the lag order with the lowest AIC
+best_aic_lag_order = x.aic
+
+# Fit the model using the best AIC lag order
+model_fitted = model.fit(best_aic_lag_order)
+model_fitted.summary()  
+
 
 from statsmodels.stats.stattools import durbin_watson
 out = durbin_watson(model_fitted.resid)
