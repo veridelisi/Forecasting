@@ -8,8 +8,8 @@ from statsmodels.tsa.stattools import adfuller
 from statsmodels.tools.eval_measures import rmse, aicc
 
 # Load data
-df = pd.read_excel('4Data.xls', parse_dates=['Date'], index_col='Date')
-print(df.shape)  # (292, 4)
+df = pd.read_excel('VAR.xlsx', parse_dates=['Date'], index_col='Date')
+print(df.shape)  # (299, 3)
 df.tail()
 
 # Granger's causality test
@@ -138,7 +138,7 @@ def invert_transformation(df_train, df_forecast, second_diff=False):
     return df_fc
 
 df_results = invert_transformation(df_train, df_forecast, second_diff=False)
-df_results.loc[:, ['CPI_forecast', 'GSCPI_forecast', 'UNRATE_forecast', 'OIL_forecast']]
+df_results.loc[:, ['CPI_forecast', 'GSCPI_forecast', 'UNRATE_forecast']]
 
 fig, axes = plt.subplots(nrows=int(len(df.columns)/2), ncols=2, dpi=150, figsize=(10,10))
 for i, (col, ax) in enumerate(zip(df.columns, axes.flatten())):
