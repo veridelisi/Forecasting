@@ -8,8 +8,8 @@ from statsmodels.tsa.stattools import adfuller
 from statsmodels.tools.eval_measures import rmse, aicc
 
 #load data
-df = pd.read_excel('4Data.xls', parse_dates=['Date'], index_col='Date')
-print(df.shape)  # (292, 4)
+df = pd.read_excel('VAR.xlsx', parse_dates=['Date'], index_col='Date')
+print(df.shape)  # (299, 3)
 df.tail()
 
 # grangers casuality test
