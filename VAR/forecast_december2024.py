@@ -2,7 +2,7 @@ from datetime import datetime
 
 # Assuming the last date in your dataset as an example
 last_date_in_dataset = df.index[-1]  # The last date in your dataset
-target_date = datetime(2024, 3, 31)  # March 2024
+target_date = datetime(2024, 12, 31)  # December 2024
 
 # Calculate the number of months to forecast
 months_to_forecast = (target_date.year - last_date_in_dataset.year) * 12 + target_date.month - last_date_in_dataset.month
@@ -22,10 +22,10 @@ if months_to_forecast > 0:
     # Now invert transformation on the combined forecast dataframe
     df_results_combined = invert_transformation(df_train, df_forecast_combined, second_diff=False)
     
-    # Extracting the specific forecast for March 2024
-    forecast_march_2024 = df_results_combined.loc['2024-03', ['CPI_forecast', 'GSCPI_forecast', 'UNRATE_forecast']]
+    # Extracting the specific forecast for December 2024
+    forecast_December_2024 = df_results_combined.loc['2024-12', ['CPI_forecast', 'GSCPI_forecast', 'UNRATE_forecast']]
 else:
-    # If the forecast already covers March 2024, extract directly
-    forecast_march_2024 = df_results.loc['2024-03', ['CPI_forecast', 'GSCPI_forecast', 'UNRATE_forecast']]
+    # If the forecast already covers December 2024, extract directly
+    forecast_December_2024 = df_results.loc['2024-12', ['CPI_forecast', 'GSCPI_forecast', 'UNRATE_forecast']]
 
-print(forecast_march_2024)
+print(forecast_December_2024)
